@@ -18,28 +18,33 @@ namespace Actividad_1
             double mayor = 0;
             int cantMayor = 0;
             Console.WriteLine("Ingrese 10 números");
-            for (i = 0; i < vec.Length; i++)
+            Console.WriteLine($"Número {varN}");
+            vec[i] = double.Parse(Console.ReadLine());
+            mayor = vec[i];
+            cantMayor++;
+            varN++;
+            i++;
+            for (i = 1; i < vec.Length; i++)
             {
                 Console.WriteLine($"Número {varN}");
                 vec[i] = double.Parse(Console.ReadLine());
-                
-               
+                if (vec[i] == mayor)
+                {
+                    cantMayor++;
+                }
 
                 if (vec[i] > mayor)
                 {
                     mayor = vec[i];
                     cantMayor = 0;
+                    cantMayor++;
                     
                 }
-                if (vec[i] == mayor)
-                {
-                    cantMayor++; 
-                }
-               
                 varN++;
                 
             }
-            Console.WriteLine($"\nEl número mayor que se ingreso fue: {mayor} y se repitio {cantMayor} veces.");
+            Console.WriteLine($"\nEl número mayor que se ingreso fue: {mayor} y se repitió {cantMayor} veces.");
+            Console.ReadKey();
            
         }
     }
