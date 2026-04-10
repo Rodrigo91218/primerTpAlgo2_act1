@@ -53,11 +53,11 @@ namespace Actividad_1
 
 
 
-            double LeerNumero(string mensaje)
+            double LeerNumero(string mensaje)// Función para simplificar el uso del mismo código dentro y fuera del bucle for.
             {
-                double valor;
+                double valor; //El número que ingresamos
 
-                Console.Write(mensaje);
+                Console.Write(mensaje); 
 
                 while (!double.TryParse(Console.ReadLine(), out valor))
                 {
@@ -65,7 +65,7 @@ namespace Actividad_1
                     Console.Write(mensaje);
                 }
 
-                return valor;
+                return valor; //Lo que devuelve la función 
             }
 
         }
