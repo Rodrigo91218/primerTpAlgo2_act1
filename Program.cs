@@ -16,15 +16,26 @@ namespace Actividad_1
             int i = 0; // Variable para recorrer el vector inicializada en 0.
             double mayor = 0; // Variable double para que el usuario puedo colocar cualquier tipo de dato númerico (int, float, decimal, double, etc.)
             int cantMayor = 0; // Variable que sirva como contador para saber la cantidad de veces que se repitio el mayor  valor.
+            Random rand = new Random();
+            ConsoleColor[] colores = {ConsoleColor.Blue,ConsoleColor.Green,ConsoleColor.Cyan,ConsoleColor.Red,ConsoleColor.Magenta,ConsoleColor.Yellow,ConsoleColor.White,ConsoleColor.DarkGray};
+            int indiceAzar = rand.Next(0,8);
+            ConsoleColor colorElegido = colores[indiceAzar];
+
             Console.WriteLine("Ingrese 10 números");
+            Console.ForegroundColor = colorElegido;
             vec[i] = LeerNumero($"Número {varN}: ");
+            Console.ResetColor();
             mayor = vec[i];// El primer valor que se ingresa es el mayor. Esto para evitar errores más adelante.
             cantMayor++;// Se eleva en 1 la cantidad de veces que se repite el mayor valor
             varN++;
             i++; // Se desplaza el casillero del vector al siguiente del 0 al 1.
             for (i = 1; i < vec.Length; i++) //Bucle for para repetir la misma secuencia de ingreso de valores y que coincida con el tamaño del vector.
             {
+                indiceAzar = rand.Next(0, 8);
+                colorElegido = colores[indiceAzar];
+                Console.ForegroundColor = colorElegido;
                 vec[i] = LeerNumero($"Número {varN}: ");
+                Console.ResetColor();
                 if (vec[i] == mayor)// Si el valor del vector en la posición 'i' es igual al valor en la variable 'mayor' se sumara el valor de 1 en la variable 'cantMayor'.
                 {
                     cantMayor++;
@@ -42,12 +53,20 @@ namespace Actividad_1
             }
             if(cantMayor == 1)
             {
+                indiceAzar = rand.Next(0, 8);
+                colorElegido = colores[indiceAzar];
+                Console.BackgroundColor = colorElegido;
                 Console.WriteLine($"\nEl número mayor que se ingreso fue: {mayor} y se repitió {cantMayor} vez."); // El programa muestra dos resultados distintos en caso que el mayor solo se repita una unica vez.
+                Console.ResetColor();
                 Console.ReadKey();
             }
             else
             {
+                indiceAzar = rand.Next(0, 8);
+                colorElegido = colores[indiceAzar];
+                Console.BackgroundColor = colorElegido;
                 Console.WriteLine($"\nEl número mayor que se ingreso fue: {mayor} y se repitió {cantMayor} veces.");// Se muestran los resultados finales. Interpolación para colocar variables más facil.
+                Console.ResetColor();
                 Console.ReadKey();//Pausa la consola para que no se cierre al terminar el programa.
             }
 
